@@ -65,29 +65,5 @@ namespace itimize
     private:
       TimingEntry entry_;
   };
-
-  class TimeCentral
-  {
-    public:
-      static TimeCentral* getInstance()
-      {
-        if(!instance)
-          instance = new TimeCentral();
-
-        return instance;
-      }
-
-    private:
-      TimeCentral(){}
-      
-      std::map<std::string, TimingEntry> records;
-
-      static TimeCentral* instance;
-  };
-
-  TimeCentral *TimeCentral::instance = nullptr;
-
-};
-
-
+}
 #endif

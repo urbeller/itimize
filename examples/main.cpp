@@ -8,8 +8,6 @@ using namespace itimize;
 int main(int , char **)
 {
 
-	TimeCentral *tc = TimeCentral::getInstance();
-
 	{
 		double f = 0;
 		TIME_BLOCK();
