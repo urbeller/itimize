@@ -33,10 +33,10 @@ namespace itimize
       Entry(const std::string &l) : label(l) {}
       Entry(const std::string &l, const TimePoint &s) : label(l), start(s){}
 
-			// Set the endtime and compute the duration.
+      // Set the endtime and compute the duration.
       void set_endtime(const TimePoint &e)
       { 
-				end = e;
+        end = e;
         std::chrono::duration<double, std::milli> dur= end - start;
         duration = dur.count();
       }
