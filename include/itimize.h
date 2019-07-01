@@ -15,6 +15,7 @@
 
 #define LOCATION std::string(__FUNCTION__) +  ":" + STR1(__LINE__)
 
+// Use these macros
 #define TIME_NAMED_BLOCK(label) itimize::Ticker COMBINE(_timer_,__LINE__)(std::string(label))
 #define TIME_BLOCK() itimize::Ticker COMBINE(_timer_,__LINE__)( LOCATION )
 
