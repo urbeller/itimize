@@ -28,21 +28,23 @@ namespace itimize
     return std::chrono::high_resolution_clock::now();
   }
 
-  struct TimingEntry
+  struct Entry
   {
-      TimingEntry(const std::string &l) : label_(l) {}
-      TimingEntry(const std::string &l, const TimePoint &s) : label_(l), start_(s){}
+      Entry(const std::string &l) : label(l) {}
+      Entry(const std::string &l, const TimePoint &s) : label(l), start(s){}
 
-      void compute_duration()
+			// Set the endtime and compute the duration.
+      void set_endtime(const TimePoint &e)
       { 
-        std::chrono::duration<double, std::milli> duration = end_ - start_;
-        duration_ = duration.count();
+				end = e;
+        std::chrono::duration<double, std::milli> dur= end - start;
+        duration = dur.count();
       }
 
-      std::string label_;
-      TimePoint start_;
-      TimePoint end_;
-      Duration duration_;
+      std::string label;
+      TimePoint   start;
+      TimePoint   end;
+      Duration    duration;
   };
 
   class Ticker
@@ -58,7 +60,7 @@ namespace itimize
       }
 
     private:
-      TimingEntry entry_;
+      Entry entry_;
   };
 }
 #endif
