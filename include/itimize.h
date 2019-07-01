@@ -23,7 +23,7 @@ namespace itimize
   using TimePoint = std::chrono::time_point<std::chrono::high_resolution_clock>;
   using Duration = double; // in ms.
 
-  TimePoint Now()
+  TimePoint now()
   {
     return std::chrono::high_resolution_clock::now();
   }
@@ -49,17 +49,12 @@ namespace itimize
   {
     public:
       Ticker(const Ticker&) = delete;
-
-      Ticker(const std::string &label) : entry_(label)
-      { 
-        entry_.start_ = Now();
-      }
+      Ticker(const std::string &label) : entry_(label, now()) { }
 
       ~Ticker()
       {
-        entry_.end_ = Now();
-        entry_.compute_duration();
-        std::cout << entry_.label_ << " " << entry_.duration_ << std::endl;
+        entry_.set_endtime( now() );
+        std::cout << entry_.label << " " << entry_.duration << std::endl;
       }
 
     private:
