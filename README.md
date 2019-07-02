@@ -1,4 +1,4 @@
-# itimize
+# Itimize
 Header only timing and profiling library
 
 This is a simple library to time/profile programs. If you want to read about the gretty details please visit my [blog](http://drareni.com/post/TQ6VP1HWUVK5PHVG). Otherwise, here is a simple example showing how to perform simple timing.
