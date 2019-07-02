@@ -13,7 +13,7 @@
 #define COMBINE1(X,Y) X##Y 
 #define COMBINE(X,Y) COMBINE1(X,Y)
 
-#define LOCATION std::string(__FUNCTION__) +  ":" + STR1(__LINE__)
+#define LOCATION std::string(__FUNCTION__) +  "(line " + STR1(__LINE__) + ")"
 
 // Use these macros
 #define TIME_NAMED_BLOCK(label) itimize::Ticker COMBINE(_timer_,__LINE__)(std::string(label))
@@ -57,7 +57,7 @@ namespace itimize
       ~Ticker()
       {
         entry_.set_endtime( now() );
-        std::cout << entry_.label << " " << entry_.duration << std::endl;
+        std::cout << entry_.label << ": " << entry_.duration << "ms" << std::endl;
       }
 
     private:
