@@ -83,7 +83,7 @@ int main(int , char **)
   // Remove entries of labeled timer from TimeCenter.
   RESET_TIMER("func3");
 
-  // Timer printing support th following units:
+  // Timer printing supports the following units:
   // "s" for seconds, "ms" for millisecs (default), "us" for micro-secs.
   func3(1);
   func3(2);
@@ -91,6 +91,6 @@ int main(int , char **)
   PRINT_TIMER("func3","ms");
   PRINT_TIMER("func3","us");
 
-	return 0;
+  return 0;
 }
 ```
